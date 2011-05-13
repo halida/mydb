@@ -12,8 +12,14 @@ def main():
     >>> db.people.insert('halida', 25, 'M')
     >>> db.people.select(name='halida')
     ['halida', 25, 'M']
+    >>> db.save()
 
-    db.people.insert(column=['name', 'age'], value=['sophia', 15])
+    >>> db = SqlDB('xxx.db')
+    >>> db.execute('select * from people where name="halida"')
+    ['halida', 25, 'M']
+
+    >>> import os
+    >>> result = os.system('rm xxx.db')
     """
     import doctest
     doctest.testmod()
